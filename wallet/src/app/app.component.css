@@ -1,0 +1,14 @@
+.app-title {
+  margin-left: 10px;
+}
+.footer-container {
+  width: 100%;
+  background-color: #673ab7;
+}
+.footer-text-content {
+  color: white;
+  margin: 5px 0px;
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter;
+}
