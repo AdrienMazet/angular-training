@@ -8,7 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   links = [
     { path: 'dashboard', label: 'dashboard' },
-    { path: 'new-operation', label: 'new operation' },
+    {
+      path: 'new-operation-reactive-form',
+      label: 'new operation (reactive form)',
+    },
+    {
+      path: 'new-operation-template-driven-form',
+      label: 'new operation (template driven form)',
+    },
     { path: 'todo', label: 'todo' },
   ];
 }

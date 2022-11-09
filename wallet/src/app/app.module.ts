@@ -7,15 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NewOperationComponent } from './new-operation/new-operation.component';
 import { TodoComponent } from './todo/todo.component';
+import { NewOperationReactiveFormComponent } from './new-operation-reactive-form/new-operation-reactive-form.component';
+import { NewOperationTemplateDrivenFormComponent } from './new-operation-template-driven-form/new-operation-template-driven-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     DashboardComponent,
-    NewOperationComponent,
+    NewOperationReactiveFormComponent,
+    NewOperationTemplateDrivenFormComponent,
   ],
   imports: [
     MatIconModule,
