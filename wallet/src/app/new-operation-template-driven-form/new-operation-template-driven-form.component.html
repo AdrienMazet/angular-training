@@ -1,1 +1,53 @@
-<p>new-operation-template-driven-form works!</p>
+<mat-card class="form-card">
+  <mat-card-title class="form-card-title">Add a new operation</mat-card-title>
+  <form
+    (ngSubmit)="onSubmit()"
+    #newOperationForm="ngForm"
+    class="new-operation-form"
+  >
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          class="form-control"
+          id="amount"
+          required
+          [(ngModel)]="amount"
+          name="amount"
+          #amountInput="ngModel"
+        />
+      </mat-form-field>
+      <div
+        [hidden]="amountInput.valid || amountInput.pristine"
+        class="alert alert-danger"
+      >
+        Amount
+      </div>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Operation type</mat-label>
+        <select
+          matNativeControl
+          class="form-control"
+          id="type"
+          required
+          [(ngModel)]="selectedType"
+          name="type"
+        >
+          <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+        </select>
+      </mat-form-field>
+    </div>
+    <button
+      type="submit"
+      color="primary"
+      mat-raised-button
+      [disabled]="!newOperationForm.form.valid"
+    >
+      Add operation
+    </button>
+  </form>
+</mat-card>
