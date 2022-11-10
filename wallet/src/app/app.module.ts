@@ -14,6 +14,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewOperationReactiveFormComponent } from './new-operation-reactive-form/new-operation-reactive-form.component';
 import { NewOperationTemplateDrivenFormComponent } from './new-operation-template-driven-form/new-operation-template-driven-form.component';
 import { TodoComponent } from './todo/todo.component';
+import { ChildComponent } from './child/child.component';
+import { ParentComponent } from './parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { TodoComponent } from './todo/todo.component';
     DashboardComponent,
     NewOperationReactiveFormComponent,
     NewOperationTemplateDrivenFormComponent,
+    ChildComponent,
+    ParentComponent,
   ],
   imports: [
     MatSelectModule,

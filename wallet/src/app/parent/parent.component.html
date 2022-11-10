@@ -1,0 +1,10 @@
+<div class="parent-container">
+  <h1>Parent component</h1>
+  <p *ngIf="randomNumberFromChild">
+    Random number from child : {{ randomNumberFromChild }}
+  </p>
+  <app-child
+    [dataFromParent]="dataFromParent"
+    (eventFromChild)="setRandomNumberFromChild($event)"
+  ></app-child>
+</div>
