@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid #673ab7;
+  border: 5px solid #673ab7;
 }
 .form-card-title {
   margin-top: 25px !important;
