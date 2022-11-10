@@ -16,6 +16,7 @@ import { NewOperationTemplateDrivenFormComponent } from './new-operation-templat
 import { TodoComponent } from './todo/todo.component';
 import { ChildComponent } from './child/child.component';
 import { ParentComponent } from './parent/parent.component';
+import { LinkCasePipe } from './pipes/link-case.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ParentComponent } from './parent/parent.component';
     NewOperationTemplateDrivenFormComponent,
     ChildComponent,
     ParentComponent,
+    LinkCasePipe,
   ],
   imports: [
     MatSelectModule,

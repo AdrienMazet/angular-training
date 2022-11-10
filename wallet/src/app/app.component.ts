@@ -10,11 +10,11 @@ export class AppComponent {
     { path: 'dashboard', label: 'dashboard' },
     {
       path: 'new-operation-reactive-form',
-      label: 'new operation (reactive form)',
+      label: 'new operation ( reactive form )',
     },
     {
       path: 'new-operation-template-driven-form',
-      label: 'new operation (template driven form)',
+      label: 'new operation ( template driven form )',
     },
     { path: 'parent-child', label: 'Parent & child communication' },
     { path: 'todo', label: 'todo' },

@@ -11,7 +11,7 @@
     *ngFor="let link of links"
     routerLink="{{ link.path }}"
     routerLinkActive="active-link"
-    >{{ link.label | titlecase }}</a
+    >{{ link.label | linkcase }}</a
   >
 </mat-toolbar>
 <router-outlet></router-outlet>
