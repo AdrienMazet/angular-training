@@ -5,43 +5,42 @@
     #newOperationForm="ngForm"
     class="new-operation-form"
   >
-    <div class="form-group">
-      <mat-form-field appearance="fill">
-        <mat-label>Amount</mat-label>
-        <input
-          matInput
-          type="number"
-          class="form-control"
-          id="amount"
-          required
-          [(ngModel)]="amount"
-          name="amount"
-          #amountInput="ngModel"
-        />
-      </mat-form-field>
-      <div
-        [hidden]="amountInput.valid || amountInput.pristine"
-        class="alert alert-danger"
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input
+        required
+        matInput
+        id="amount"
+        type="number"
+        name="amount"
+        [(ngModel)]="amount"
+        #amountInput="ngModel"
+      />
+      <span matPrefix>€&nbsp;</span>
+      <mat-error *ngIf="amountInput.invalid"
+        >This is not a valid amount</mat-error
       >
-        Amount
-      </div>
-    </div>
-    <div class="form-group">
-      <mat-form-field appearance="fill">
-        <mat-label>Operation type</mat-label>
-        <select
-          matNativeControl
-          class="form-control"
-          id="type"
-          required
-          [(ngModel)]="selectedType"
-          name="type"
-        >
-          <option *ngFor="let type of types" [value]="type">{{ type }}</option>
-        </select>
-      </mat-form-field>
-    </div>
-    <button type="submit" color="primary" mat-raised-button>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Operation type</mat-label>
+      <select
+        required
+        id="type"
+        name="type"
+        matNativeControl
+        [(ngModel)]="selectedType"
+      >
+        <option *ngFor="let type of types" [value]="type">
+          {{ type | titlecase }}
+        </option>
+      </select>
+    </mat-form-field>
+    <button
+      type="submit"
+      color="primary"
+      mat-raised-button
+      [disabled]="newOperationForm.invalid || amount === 0"
+    >
       Add operation
     </button>
   </form>

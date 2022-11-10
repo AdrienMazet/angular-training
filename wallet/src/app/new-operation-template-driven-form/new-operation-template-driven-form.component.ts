@@ -7,13 +7,14 @@ import { Component } from '@angular/core';
 })
 export class NewOperationTemplateDrivenFormComponent {
   amount = 0;
-  selectedType = '';
   // get if from service with observables
-  types = ['income', 'expense', 'saving'];
+  types = ['expense', 'income', 'saving'];
+  selectedType = this.types[0];
 
   onSubmit() {
+    // call the service
     console.log(this.selectedType, this.amount);
     this.amount = 0;
-    this.selectedType = '';
+    this.selectedType = this.types[0];
   }
 }
