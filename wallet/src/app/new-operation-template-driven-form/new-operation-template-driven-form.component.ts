@@ -16,6 +16,7 @@ export class NewOperationTemplateDrivenFormComponent {
 
   onSubmit() {
     this.operationService.addNewOperation(this.operation);
+    alert('Operation added!');
     this.operation = new Operation();
   }
 }
