@@ -1,15 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { OperationService } from '../services/operation.service';
+import { Operation } from '../types/Operation';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  displayedColumns: string[] = ['category', 'amount'];
+  dataSource: MatTableDataSource<Operation> = new MatTableDataSource(
+    [] as Operation[]
+  );
 
-  constructor() { }
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  ngOnInit(): void {
+  constructor(private operationService: OperationService) {}
+
+  ngOnInit() {
+    this.operationService.getOperations().subscribe((operations) => {
+      this.dataSource = new MatTableDataSource(operations);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }
