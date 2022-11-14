@@ -13,7 +13,7 @@
         id="amount"
         type="number"
         name="amount"
-        [(ngModel)]="amount"
+        [(ngModel)]="operation.amount"
         #amountInput="ngModel"
       />
       <span matPrefix>€&nbsp;</span>
@@ -22,16 +22,16 @@
       >
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Operation type</mat-label>
+      <mat-label>Operation category</mat-label>
       <select
         required
-        id="type"
-        name="type"
+        id="category"
+        name="category"
         matNativeControl
-        [(ngModel)]="selectedType"
+        [(ngModel)]="operation.category"
       >
-        <option *ngFor="let type of types" [value]="type">
-          {{ type | titlecase }}
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category | titlecase }}
         </option>
       </select>
     </mat-form-field>
@@ -39,7 +39,7 @@
       type="submit"
       color="primary"
       mat-raised-button
-      [disabled]="newOperationForm.invalid || amount === 0"
+      [disabled]="newOperationForm.invalid || operation.amount === 0"
     >
       Add operation
     </button>

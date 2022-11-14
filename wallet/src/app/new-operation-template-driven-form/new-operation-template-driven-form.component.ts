@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { OperationService } from '../services/operation.service';
+import { Operation } from '../types/Operation';
+import { operationCagegories } from '../types/OperationCategory';
 
 @Component({
   selector: 'app-new-operation-template-driven-form',
@@ -6,15 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-operation-template-driven-form.component.css'],
 })
 export class NewOperationTemplateDrivenFormComponent {
-  amount = 0;
-  // get if from service with observables
-  types = ['expense', 'income', 'saving'];
-  selectedType = this.types[0];
+  operation = new Operation();
+  categories = operationCagegories;
+
+  constructor(private operationService: OperationService) {}
 
   onSubmit() {
-    // call the service
-    console.log(this.selectedType, this.amount);
-    this.amount = 0;
-    this.selectedType = this.types[0];
+    this.operationService.addNewOperation(this.operation);
+    this.operation = new Operation();
   }
 }
