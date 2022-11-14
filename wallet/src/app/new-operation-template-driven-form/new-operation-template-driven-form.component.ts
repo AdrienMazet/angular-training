@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OperationService } from '../services/operation.service';
-import { Operation } from '../types/Operation';
+import { NewOperation } from '../types/NewOperation';
 import { operationCagegories } from '../types/OperationCategory';
 
 @Component({
@@ -9,14 +9,15 @@ import { operationCagegories } from '../types/OperationCategory';
   styleUrls: ['./new-operation-template-driven-form.component.css'],
 })
 export class NewOperationTemplateDrivenFormComponent {
-  operation = new Operation();
+  operation = new NewOperation();
   categories = operationCagegories;
 
   constructor(private operationService: OperationService) {}
 
   onSubmit() {
-    this.operationService.addNewOperation(this.operation);
-    alert('Operation added!');
-    this.operation = new Operation();
+    this.operationService.addNewOperation(this.operation).subscribe(() => {
+      alert('Operation added!');
+      this.operation = new NewOperation();
+    });
   }
 }
