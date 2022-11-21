@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   links = [
     { path: 'dashboard', label: 'dashboard' },
+    { path: 'charts', label: 'charts' },
     {
       path: 'new-operation-template-driven-form',
       label: 'new operation ( template driven form )',

@@ -1,0 +1,10 @@
+.filter-input {
+  width: 100%;
+}
+.dashboard-table {
+  min-width: 100%;
+  min-height: 500px;
+}
+.balance-display {
+  text-align: center;
+}

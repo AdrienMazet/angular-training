@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChartsComponent } from './charts/charts.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewOperationTemplateDrivenFormComponent } from './new-operation-template-driven-form/new-operation-template-driven-form.component';
 import { ParentComponent } from './parent/parent.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   },
   { path: 'parent-child', component: ParentComponent },
   { path: 'todo', component: TodoComponent },
+  { path: 'charts', component: ChartsComponent },
 ];
 
 @NgModule({

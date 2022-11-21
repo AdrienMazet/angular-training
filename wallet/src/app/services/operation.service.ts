@@ -19,7 +19,7 @@ export class OperationService {
   getOperations() {
     return this.http
       .get<Operation[]>(this.operationsURL)
-      .pipe(
+      .pipe<Operation[], Operation[]>(
         tap(console.log),
         catchError(this.handleError<Operation[]>('getOperations', []))
       );
